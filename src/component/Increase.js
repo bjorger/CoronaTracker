@@ -8,6 +8,10 @@ class Increase extends React.Component {
 	}
 
 	render() {
+
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
         let percentage = parseInt(this.props.value) / parseInt(this.props.allCases);
         
 
@@ -16,14 +20,14 @@ class Increase extends React.Component {
 		} else if (this.props.value > 0) {
 			return (
 				<span className="increase">
-					<FontAwesomeIcon icon={faArrowUp} style={{ fontSize: '15px' }} /> {this.props.value} ( +{' '}
+					<FontAwesomeIcon icon={faArrowUp} style={{ fontSize: '15px' }} /> {numberWithCommas(this.props.value)} ( +{' '}
 					{percentage.toFixed(2)} % )
 				</span>
 			);
 		} else {
 			return (
 				<span className="decrease">
-					<FontAwesomeIcon icon={faArrowDown} style={{ fontSize: '15px' }} /> {this.props.value} ( -{' '}
+					<FontAwesomeIcon icon={faArrowDown} style={{ fontSize: '15px' }} /> {numberWithCommas(this.props.value)} ( -{' '}
 					{percentage.toFixed(2)} % )
 				</span>
 			);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Increase from './Increase';
-import '../styles/table.css';
+import '../styles/Table.css';
 
 class CountryTable extends React.Component {
 	constructor(props) {
@@ -24,6 +24,7 @@ class CountryTable extends React.Component {
 
 	onSort(event, sortKey) {
 		let data = this.state.data;
+		
 		data.sort((a, b) => {
 			if (typeof a[sortKey] === 'string') {
 				if (a[sortKey] < b[sortKey]) {
@@ -40,18 +41,24 @@ class CountryTable extends React.Component {
 		});
 		this.setState({ data: data });
 	}
+	
 
 	render() {
+
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+
 		let allDeaths = 0;
-		let allActive = 0;
+		let allCases = 0;
 		this.state.data.forEach((element) => {
 			allDeaths += parseFloat(element.deaths);
 		});
 		this.state.data.forEach((element) => {
-			allActive += parseFloat(element.active);
+			allCases += parseFloat(element.cases);
 		});
 
-		const mortalityRate = allDeaths / allActive;
+		const mortalityRate = (allDeaths / allCases) * 100;
 
 		return (
 			<div style={{ width: '1000px', paddingBottom: '20px' }}>
@@ -101,27 +108,28 @@ class CountryTable extends React.Component {
 										},
 									];
 								}
+
 								return (
 									<tr>
-										<td>{state.country}</td>
-										<td style={{width: '300px'}}>
-											{state.cases}{' '}
+										<td style={{fontSize: '15px'}}>{state.country}</td>
+										<td style={{width: '320px'}}>
+											{numberWithCommas(state.cases)}{' '}
 											<Increase
 												value={state.todayCases}
 												allCases={yesterdaysStats[0].todayCases}
 											/>
 										</td>
-										<td style={{width: '300px'}}>
-											{state.deaths}{' '}
+										<td style={{width: '320px'}}>
+											{numberWithCommas(state.deaths)}{' '}
 											<Increase
 												value={state.todayDeaths}
 												allCases={yesterdaysStats[0].todayCases}
 											/>
 										</td>
-										<td>{state.recovered}</td>
-										<td>{state.active}</td>
-										<td>{state.critical}</td>
-										<td>{state.testsPerOneMillion}</td>
+										<td>{numberWithCommas(state.recovered)}</td>
+										<td>{numberWithCommas(state.active)}</td>
+										<td>{numberWithCommas(state.critical)}</td>
+										<td>{numberWithCommas(state.testsPerOneMillion)}</td>
 									</tr>
 								);
 							})}

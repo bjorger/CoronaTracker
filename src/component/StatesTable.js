@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/table.css';
+import '../styles/Table.css';
 
 /*https://rapidapi.com/ShubhGupta/api/covid19-data?endpoint=apiendpoint_d5275d2a-ffe4-4a12-8a76-6c9d932e234d */
 
@@ -43,6 +43,12 @@ class StateTables extends React.Component {
 	}
 
 	render() {
+		
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+
+
 		let allDeaths = 0;
 		let allActive = 0;
 		this.state.data.forEach((element) => {
@@ -52,7 +58,7 @@ class StateTables extends React.Component {
 			allActive += parseFloat(element.properties.confirmed);
 		});
 
-		const mortalityRate = allDeaths / allActive;
+		const mortalityRate = (allDeaths / allActive) * 100;
 		return (
 			<div style={{ paddingBottom: '20px', marginLeft:'30px', marginRight: '30px'}}>
 				<div className="statesTableHeadline">
@@ -79,8 +85,8 @@ class StateTables extends React.Component {
 								return (
 									<tr>
 										<td>{state.properties.name}</td>
-										<td>{state.properties.confirmed}</td>
-										<td>{state.properties.deaths}</td>
+										<td>{numberWithCommas(state.properties.confirmed)}</td>
+										<td>{numberWithCommas(state.properties.deaths)}</td>
 									</tr>
 								);
 							})}
