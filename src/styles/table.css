@@ -42,7 +42,7 @@ table{
     position: relative;
     display: block;
     width: auto;
-    max-height: 600px;
+    max-height: 400px;
     overflow-y: scroll;
     border-collapse: collapse;
 }
@@ -81,9 +81,18 @@ tr:first-child{
 }
 
 .tableHeadline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 25px;
 }
 
 .myTable th {
     box-shadow: inset 1px 1px white, 0 1px white;
-  }
+}
+
+.stateTables{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -3,7 +3,7 @@ import './styles/App.css';
 import Increase from './component/Increase';
 import { NovelCovid } from 'novelcovid';
 import CountryTable from './component/CountryTable';
-import StateTables from './component/StatesTable'
+import StateTables from './component/StatesTable';
 import Aysnc, { Async } from 'react-async';
 
 /* 
@@ -42,6 +42,15 @@ class Index extends React.Component {
 	render() {
 		const usStates = () =>
 			fetch('https://covid19-data.p.rapidapi.com/geojson-us', {
+				method: 'GET',
+				headers: {
+					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
+					'x-rapidapi-key': '0f74f4db90msh0c879c596d00ecep1875f4jsn58564af8b26a',
+				},
+			}).then((response) => response.json());
+
+		const indiaStates = () =>
+			fetch('https://covid19-data.p.rapidapi.com/geojson-in', {
 				method: 'GET',
 				headers: {
 					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
@@ -390,19 +399,28 @@ class Index extends React.Component {
 				<CountryTable continent={'Oceania'} data={ocStates} yesterday={this.state.yesterday} />
 				<CountryTable continent={'Africa'} data={afStates} yesterday={this.state.yesterday} />
 				<CountryTable continent={'Middle East'} data={meStates} yesterday={this.state.yesterday} />
-				<Async promiseFn={usStates}>
-					{({ data, err, isLoading }) => {
-						if (isLoading) return 'Loading...';
-						if (data)
-						console.log(data)
-						data = data.features.sort((a,b) =>{
-							return b.properties['confirmed'] - a.properties['confirmed'];
-						})
-							return (
-								<StateTables country={'United States of America'} data={data} />
-							);
-					}}
-				</Async>
+				<div className="stateTables">
+					<Async promiseFn={usStates}>
+						{({ data, err, isLoading }) => {
+							if (isLoading) return 'Loading...';
+							if (data) console.log(data);
+							data = data.features.sort((a, b) => {
+								return b.properties['confirmed'] - a.properties['confirmed'];
+							});
+							return <StateTables country={'United States of America'} data={data} />;
+						}}
+					</Async>
+					<Async promiseFn={indiaStates}>
+						{({ data, err, isLoading }) => {
+							if (isLoading) return 'Loading...';
+							if (data) console.log(data);
+							data = data.features.sort((a, b) => {
+								return b.properties['confirmed'] - a.properties['confirmed'];
+							});
+							return <StateTables country={'India'} data={data} />;
+						}}
+					</Async>
+				</div>
 			</div>
 		);
 	}
