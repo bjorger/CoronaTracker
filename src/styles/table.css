@@ -3,11 +3,23 @@ th, td{
     color: white;
     border-top: 0px;
     border-left: 0px;
-    font-size: 15px;
-    width: 450px;
-    max-width: 700px;
+    font-size: 12px;
+    width: 200px;
     height: 30px;
     padding: 5px 10px;
+}
+
+th:hover{
+    cursor: pointer;
+}
+
+thead th{
+    background-color: #b89d55;
+    font-size: 15px;
+}
+
+table{
+    border-bottom: 1px solid white;
 }
 
 th{
@@ -29,15 +41,35 @@ th{
 table{
     position: relative;
     display: block;
-    width: 100%;
-    height: 600px;
+    width: auto;
+    max-height: 600px;
     overflow-y: scroll;
     border-collapse: collapse;
-    border-bottom: 1px solid white;
 }
 
-table::-webkit-scrollbar{
-    display: none;
+.statesTable{
+    width: 400px;
+    max-height: 200px;
+}
+
+table::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+table::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+table::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
 
 td {
