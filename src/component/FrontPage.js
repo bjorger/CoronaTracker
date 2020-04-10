@@ -6,7 +6,6 @@ import CountryTable from './CountryTable';
 import StateTables from './StatesTable';
 import { Async } from 'react-async';
 
-
 /* 
 https://www.npmjs.com/package/covid19-api
 */
@@ -372,28 +371,30 @@ class FrontPage extends React.Component {
 			if (middleEastIso3.includes(country.countryInfo.iso3)) {
 				return country;
 			}
-        });
-        
-        function numberWithCommas(x) {
-            if(typeof x === "number"){
-                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            }
+		});
+
+		function numberWithCommas(x) {
+			if (typeof x === 'number') {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+			}
 		}
 
 		return (
-			<div className="App">
-				<div id="overall" style={{paddingTop: '80px'}}>
+			<div className="App" style={{ paddingBottom: '20px' }}>
+				<div id="overall" style={{ paddingTop: '80px' }}>
 					<div id="overallStats">
 						<p className="cardHeadline">Worldwide Corona Statistics</p>
 						<div style={{ paddingTop: '10px' }}>
 							<p>
-								Cases: {numberWithCommas(parseInt(this.state.all.cases))} <Increase value={this.state.all.todayCases} />
+								Cases: {numberWithCommas(parseInt(this.state.all.cases))}{' '}
+								<Increase value={this.state.all.todayCases} />
 							</p>
 							<p>
-								Deaths: {numberWithCommas(parseInt(this.state.all.deaths))} <Increase value={this.state.all.todayDeaths} />
+								Deaths: {numberWithCommas(parseInt(this.state.all.deaths))}{' '}
+								<Increase value={this.state.all.todayDeaths} />
 							</p>
 							<p>Recovered: {numberWithCommas(parseInt(this.state.all.recovered))}</p>
-							<p>Active Cases: {numberWithCommas(parseInt(this.state.all.recovered))}</p>
+							<p>Active Cases: {numberWithCommas(parseInt(this.state.all.active))}</p>
 							<p>Critical: {numberWithCommas(parseInt(this.state.all.critical))}</p>
 						</div>
 					</div>
@@ -419,7 +420,7 @@ class FrontPage extends React.Component {
 					</Async>
 					<Async promiseFn={indiaStates}>
 						{({ data, err, isLoading }) => {
-							if (isLoading) return 'Loading...';
+							if (isLoading) return <p style={{color: 'white'}}>'Loading...'</p>;
 							if (data) console.log(data);
 							data = data.features.sort((a, b) => {
 								return b.properties['confirmed'] - a.properties['confirmed'];

@@ -1,6 +1,7 @@
 import React from 'react';
 import FrontPage from './component/FrontPage';
 import Header from './component/Header';
+import Footer from './component/Footer'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 /* 
@@ -11,11 +12,12 @@ class Index extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<div className="App">
+				<div>
 					<Header />
 					<Switch>
 						<Route path="/" component={FrontPage} exact/>
 					</Switch>
+					<Footer />
 				</div>
 			</BrowserRouter>
 		);

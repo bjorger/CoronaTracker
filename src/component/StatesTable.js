@@ -61,7 +61,7 @@ class StateTables extends React.Component {
 		const mortalityRate = (allDeaths / allActive) * 100;
 		return (
 			<div style={{ paddingBottom: '20px', marginLeft:'30px', marginRight: '30px'}}>
-				<div className="statesTableHeadline">
+				<div className="statesTableHeadline" style={{display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
 					<p>{this.props.country}</p>{' '}
 					<p className="mortalityRate">Mortalityrate: {mortalityRate.toFixed(2)}%</p>
 				</div>

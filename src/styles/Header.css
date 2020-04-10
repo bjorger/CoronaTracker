@@ -7,7 +7,21 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 10px 10px 11px -4px rgba(0,0,0,0.75);
+}
+
+
+header > div{
+    margin-right: 100px;
+}
+
+header > div a{
+  margin-left: 50px;
+}
+
+header > div a:hover{
+    color: #262833;
 }
 
 @media (prefers-reduced-motion: no-preference) {
