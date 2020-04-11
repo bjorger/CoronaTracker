@@ -12,14 +12,20 @@ class Header extends React.Component{
     render(){
         return(
             <header>
-                <div id="headerLogo" style={{color: 'white', fontSize: '25px', paddingLeft: '50px'}}>
-                    c<FontAwesomeIcon icon={faRadiation} style={{color:'#262833'}} className="App-logo"/>v2tracker.info
-                </div>
-                <div>  
+                <Link to="/">
+                    <div id="headerLogo" style={{color: 'white', fontSize: '25px', paddingLeft: '50px'}}>
+                        c<FontAwesomeIcon icon={faRadiation} style={{color:'#262833'}} className="App-logo"/>v2tracker.info
+                    </div>
+                </Link>
+
+                <div> 
                     <Link to="/">
+                        Home
+                    </Link>
+                    <Link to="/Map">
                         Map
                     </Link>
-                    <Link to="/">
+                    <Link to="/Prevention">
                         Prevention
                     </Link>
                     <Link to="/" style={{display: 'none'}}>
