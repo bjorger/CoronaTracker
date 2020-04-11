@@ -48,7 +48,7 @@ table{
 }
 
 .statesTable{
-    width: 400px;
+    width: 600px;
     max-height: 200px;
 }
 
@@ -62,7 +62,7 @@ table::-webkit-scrollbar-track
 table::-webkit-scrollbar
 {
 	width: 12px;
-	background-color: #F5F5F5;
+	background-color: #262833;
 }
 
 table::-webkit-scrollbar-thumb
@@ -95,4 +95,9 @@ tr:first-child{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.detailedCountryTable td,
+.detailedCountryTable th{
+    width: 144px;
 }

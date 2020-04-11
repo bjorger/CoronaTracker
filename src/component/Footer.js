@@ -6,9 +6,9 @@ import '../styles/Footer.css';
 class Footer extends React.Component {
 	render() {
 		return (
-			<footer>
+			<footer style={{marginTop: '20px'}}>
 				<div>
-					<div className="creator">This Page was created by Robin Braumann</div>
+					<div className="creator">This page was created by Robin Braumann</div>
 					<div className="socialMedia">
 						Socialmedia: {' '}
 						<a href="https://www.instagram.com/mary_van_meow/" target="_blank">

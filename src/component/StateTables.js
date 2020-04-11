@@ -31,7 +31,6 @@ class StateTables extends React.Component {
 					return -1;
 				}
 				if (a.properties[sortKey] > b.properties[sortKey]) {
-					console.log(1);
 					return 1;
 				}
 				return 0;
@@ -61,7 +60,7 @@ class StateTables extends React.Component {
 		const mortalityRate = (allDeaths / allActive) * 100;
 		return (
 			<div style={{ paddingBottom: '20px', marginLeft:'30px', marginRight: '30px'}}>
-				<div className="statesTableHeadline" style={{display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
+				<div className="tableHeadline" style={{display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
 					<p>{this.props.country}</p>{' '}
 					<p className="mortalityRate">Mortalityrate: {mortalityRate.toFixed(2)}%</p>
 				</div>
@@ -84,7 +83,7 @@ class StateTables extends React.Component {
 							{this.state.data.map((state) => {
 								return (
 									<tr>
-										<td>{state.properties.name}</td>
+										<td style={{fontSize: '15px'}}>{state.properties.name}</td>
 										<td>{numberWithCommas(state.properties.confirmed)}</td>
 										<td>{numberWithCommas(state.properties.deaths)}</td>
 									</tr>

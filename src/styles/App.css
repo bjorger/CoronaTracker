@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+#root{
+  background-color: #262833;
+}
+
 #overallStats{
   background-color: #b89d55;
   padding: 10px;

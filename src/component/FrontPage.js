@@ -3,8 +3,9 @@ import '../styles/App.css';
 import Increase from './Increase';
 import { NovelCovid } from 'novelcovid';
 import CountryTable from './CountryTable';
-import StateTables from './StatesTable';
-import { Async } from 'react-async';
+import DetailedCountryTable from './DetailedCountryTable';
+import StateTables from './StateTables'
+import Async from 'react-async'
 
 /* 
 https://www.npmjs.com/package/covid19-api
@@ -17,7 +18,6 @@ class FrontPage extends React.Component {
 			all: '',
 			yesterday: [],
 			countries: [],
-			naStates: [],
 		};
 	}
 
@@ -33,31 +33,9 @@ class FrontPage extends React.Component {
 		});
 
 		novelcovid.countries().then((response) => this.setState({ countries: response }));
-
-		novelcovid.all().then((response) => console.log('All()', response));
-		novelcovid.countries().then((response) => console.log('Countries()', response));
-		novelcovid.yesterday().then((response) => console.log('Yesterday()', response));
 	}
 
 	render() {
-		const usStates = () =>
-			fetch('https://covid19-data.p.rapidapi.com/geojson-us', {
-				method: 'GET',
-				headers: {
-					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
-					'x-rapidapi-key': '0f74f4db90msh0c879c596d00ecep1875f4jsn58564af8b26a',
-				},
-			}).then((response) => response.json());
-
-		const indiaStates = () =>
-			fetch('https://covid19-data.p.rapidapi.com/geojson-in', {
-				method: 'GET',
-				headers: {
-					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
-					'x-rapidapi-key': '0f74f4db90msh0c879c596d00ecep1875f4jsn58564af8b26a',
-				},
-			}).then((response) => response.json());
-
 		let euCountriesISO2 = [
 			'BE',
 			'BG',
@@ -379,6 +357,24 @@ class FrontPage extends React.Component {
 			}
 		}
 
+		const usStates = () =>
+			fetch('https://covid19-data.p.rapidapi.com/geojson-us', {
+				method: 'GET',
+				headers: {
+					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
+					'x-rapidapi-key': '0f74f4db90msh0c879c596d00ecep1875f4jsn58564af8b26a',
+				},
+			}).then((response) => response.json());
+
+		const indiaStates = () =>
+			fetch('https://covid19-data.p.rapidapi.com/geojson-in', {
+				method: 'GET',
+				headers: {
+					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
+					'x-rapidapi-key': '0f74f4db90msh0c879c596d00ecep1875f4jsn58564af8b26a',
+				},
+			}).then((response) => response.json());
+
 		return (
 			<div className="App" style={{ paddingBottom: '20px' }}>
 				<div id="overall" style={{ paddingTop: '80px' }}>
@@ -407,25 +403,19 @@ class FrontPage extends React.Component {
 				<CountryTable continent={'Oceania'} data={ocStates} yesterday={this.state.yesterday} />
 				<CountryTable continent={'Africa'} data={afStates} yesterday={this.state.yesterday} />
 				<CountryTable continent={'Middle East'} data={meStates} yesterday={this.state.yesterday} />
-				<div className="stateTables">
-					<Async promiseFn={usStates}>
-						{({ data, err, isLoading }) => {
-							if (isLoading) return 'Loading...';
-							if (data) console.log(data);
-							data = data.features.sort((a, b) => {
-								return b.properties['confirmed'] - a.properties['confirmed'];
-							});
-							return <StateTables country={'United States of America'} data={data} />;
-						}}
-					</Async>
+				<DetailedCountryTable iso="CHN" title="China"/>
+				<DetailedCountryTable iso="AUS" title="Australien"/>
+				<DetailedCountryTable iso="USA" title="United States of America"/>
+				<div className="stateTables" style={{paddingTop: '20px'}}>
 					<Async promiseFn={indiaStates}>
-						{({ data, err, isLoading }) => {
+						{({ data, isLoading }) => {
 							if (isLoading) return <p style={{color: 'white'}}>'Loading...'</p>;
-							if (data) console.log(data);
-							data = data.features.sort((a, b) => {
-								return b.properties['confirmed'] - a.properties['confirmed'];
-							});
-							return <StateTables country={'India'} data={data} />;
+							if (data){
+								data = data.features.sort((a, b) => {
+									return b.properties['confirmed'] - a.properties['confirmed'];
+								});
+								return <StateTables country={'India'} data={data} />
+							};
 						}}
 					</Async>
 				</div>
