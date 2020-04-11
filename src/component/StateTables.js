@@ -1,5 +1,7 @@
 import React from 'react';
-import '../styles/table.css';
+import '../styles/Table.css';
+
+/*https://rapidapi.com/ShubhGupta/api/covid19-data?endpoint=apiendpoint_d5275d2a-ffe4-4a12-8a76-6c9d932e234d */
 
 class StateTables extends React.Component {
 	constructor(props) {
@@ -13,7 +15,7 @@ class StateTables extends React.Component {
 	static getDerivedStateFromProps(nextProps, prevState) {
 		if (nextProps.data !== prevState.data) {
 			return {
-				data: nextProps.data
+				data: nextProps.data,
 			};
 		}
 
@@ -29,7 +31,6 @@ class StateTables extends React.Component {
 					return -1;
 				}
 				if (a.properties[sortKey] > b.properties[sortKey]) {
-					console.log(1);
 					return 1;
 				}
 				return 0;
@@ -39,17 +40,36 @@ class StateTables extends React.Component {
 		});
 		this.setState({ data: data });
 	}
-	
+
 	render() {
+		
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+
+
+		let allDeaths = 0;
+		let allActive = 0;
+		this.state.data.forEach((element) => {
+			allDeaths += parseFloat(element.properties.deaths);
+		});
+		this.state.data.forEach((element) => {
+			allActive += parseFloat(element.properties.confirmed);
+		});
+
+		const mortalityRate = (allDeaths / allActive) * 100;
 		return (
-			<div style={{ width: '1000px', paddingBottom: '20px' }}>
-				<p className="tableHeadline">{this.props.country}</p>
+			<div style={{ paddingBottom: '20px', marginLeft:'30px', marginRight: '30px'}}>
+				<div className="tableHeadline" style={{display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
+					<p>{this.props.country}</p>{' '}
+					<p className="mortalityRate">Mortalityrate: {mortalityRate.toFixed(2)}%</p>
+				</div>
 				<div className="myTable">
 					<table className="statesTable">
 						<thead>
 							<tr>
 								<th onClick={(e) => this.onSort(e, 'name')} className="tableHeader">
-									Land
+									Country
 								</th>
 								<th onClick={(e) => this.onSort(e, 'confirmed')} className="tableHeader">
 									Confirmed Cases
@@ -63,9 +83,9 @@ class StateTables extends React.Component {
 							{this.state.data.map((state) => {
 								return (
 									<tr>
-										<td>{state.properties.name}</td>
-										<td>{state.properties.confirmed}</td>
-										<td>{state.properties.deaths}</td>
+										<td style={{fontSize: '15px'}}>{state.properties.name}</td>
+										<td>{numberWithCommas(state.properties.confirmed)}</td>
+										<td>{numberWithCommas(state.properties.deaths)}</td>
 									</tr>
 								);
 							})}

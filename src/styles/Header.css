@@ -1,0 +1,41 @@
+header{
+    position: fixed;
+    height: 50px;
+    background-color: #b89d55;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 10px 10px 11px -4px rgba(0,0,0,0.75);
+}
+
+
+header > div{
+    margin-right: 100px;
+}
+
+header > div a{
+  margin-left: 50px;
+}
+
+header > div a:hover{
+    color: #262833;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 15s linear;
+    }
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

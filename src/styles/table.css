@@ -42,13 +42,13 @@ table{
     position: relative;
     display: block;
     width: auto;
-    max-height: 600px;
+    max-height: 250px;
     overflow-y: scroll;
     border-collapse: collapse;
 }
 
 .statesTable{
-    width: 400px;
+    width: 600px;
     max-height: 200px;
 }
 
@@ -62,7 +62,7 @@ table::-webkit-scrollbar-track
 table::-webkit-scrollbar
 {
 	width: 12px;
-	background-color: #F5F5F5;
+	background-color: #262833;
 }
 
 table::-webkit-scrollbar-thumb
@@ -81,9 +81,23 @@ tr:first-child{
 }
 
 .tableHeadline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 25px;
 }
 
 .myTable th {
     box-shadow: inset 1px 1px white, 0 1px white;
-  }
+}
+
+.stateTables{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detailedCountryTable td,
+.detailedCountryTable th{
+    width: 144px;
+}

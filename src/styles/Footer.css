@@ -1,0 +1,23 @@
+footer{
+    height: 150px;
+    background-color: #b89d55;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+footer > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 38px;
+}
+
+.socialMedia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+

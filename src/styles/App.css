@@ -1,9 +1,13 @@
 .App{
-    padding: 50px;
+    padding: 0 50px;
     background-color: #262833;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#root{
+  background-color: #262833;
 }
 
 #overallStats{
@@ -18,11 +22,11 @@
   box-shadow: 0px 8px 32px 5px rgba(0,0,0,0.75);
 }
 
-.decrease{
-  color: rgb(248, 79, 33);
+.increase{
+  color: rgb(248, 105, 66);
 }
 
-.increase{
+.decrease{
   color: #25f025;
 }
 
@@ -121,4 +125,9 @@ p{
 
 *{
     font-family: 'Oswald';
+}
+
+a{
+  text-decoration: none;
+  color: white;
 }
