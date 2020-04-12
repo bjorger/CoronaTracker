@@ -7,7 +7,8 @@ import ReactGA from 'react-ga'
 
 ReactGA.initialize(process.env.GOOGLE_ANALYTICS_API_KEY);
 ReactGA.pageview('/CoronaTracker')
-
+ReactGA.pageview('/')
+ReactGA.pageview('/Prevention')
 ReactDOM.render(
   <React.StrictMode>
     <App />
