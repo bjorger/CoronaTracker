@@ -5,9 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ReactGA from 'react-ga'
 
-const trackingID = "UA-163432335-1";
-
-ReactGA.initialize(trackingID);
+ReactGA.initialize(process.env.GOOGLE_ANALYTICS_API_KEY);
 ReactGA.pageview('/CoronaTracker')
 
 ReactDOM.render(

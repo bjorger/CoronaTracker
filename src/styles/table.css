@@ -104,6 +104,12 @@ tr:first-child{
     width: 144px;
 }
 
+.statesTable th,
+.statesTable td{
+    width: 500px;
+    max-height: 200px;
+}
+
 @media screen and (max-width: 1100px) {
     .statesTable{
         width: 100%;
