@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ReactGA from 'react-ga'
 
-ReactGA.initialize(process.env.GOOGLE_ANALYTICS_API_KEY);
+ReactGA.initialize('UA-163432335-1');
 ReactGA.pageview('/CoronaTracker')
 ReactGA.pageview('/')
 ReactGA.pageview('/Prevention')
