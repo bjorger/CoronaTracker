@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ReactGA from 'react-ga'
+
+const trackingID = "UA-163432335-1";
+
+ReactGA.initialize(trackingID);
+ReactGA.pageview('/CoronaTracker')
 
 ReactDOM.render(
   <React.StrictMode>
