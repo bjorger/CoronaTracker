@@ -404,7 +404,7 @@ class FrontPage extends React.Component {
 				<CountryTable continent={'Africa'} data={afStates} yesterday={this.state.yesterday} />
 				<CountryTable continent={'Middle East'} data={meStates} yesterday={this.state.yesterday} />
 				<DetailedCountryTable iso="CHN" title="China"/>
-				<DetailedCountryTable iso="AUS" title="Australien"/>
+				<DetailedCountryTable iso="AUS" title="Australia"/>
 				<DetailedCountryTable iso="USA" title="United States of America"/>
 				<div className="stateTables" style={{paddingTop: '20px'}}>
 					<Async promiseFn={indiaStates}>

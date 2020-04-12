@@ -64,7 +64,7 @@ class CountryTable extends React.Component {
 			<div className="countryTableContainer" style={{ width: '1000px', paddingBottom: '20px' }}>
 				<div className="tableHeadline">
 					<p>{this.props.continent}</p>{' '}
-					<p className="mortalityRate">Mortalityrate: {mortalityRate.toFixed(2)}%</p>
+					<p className="mortalityRate">Mortality Rate: {mortalityRate.toFixed(2)}%</p>
 				</div>
 				<div className="myTable">
 					<table className="countryTable">

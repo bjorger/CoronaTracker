@@ -62,7 +62,7 @@ class StateTables extends React.Component {
 			<div className="innerStatesTable" style={{ paddingBottom: '20px', marginLeft:'30px', marginRight: '30px'}}>
 				<div className="tableHeadline" style={{display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
 					<p>{this.props.country}</p>{' '}
-					<p className="mortalityRate">Mortalityrate: {mortalityRate.toFixed(2)}%</p>
+					<p className="mortalityRate">Mortality Rate: {mortalityRate.toFixed(2)}%</p>
 				</div>
 				<div className="myTable">
 					<table className="statesTable">

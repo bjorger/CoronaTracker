@@ -102,7 +102,7 @@ class DetailedCountryTable extends React.Component {
 		let loaded;
 
 		if(this.state.loaded){
-			loaded = <p className="mortalityRate">Mortalityrate: {this.state.mortalityRate.toFixed(2)}%</p>
+			loaded = <p className="mortalityRate">Mortality Rate: {this.state.mortalityRate.toFixed(2)}%</p>
 		}
 		else{
 			loaded = <p className="mortalityRate">Loading...</p>
