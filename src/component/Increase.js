@@ -15,7 +15,7 @@ class Increase extends React.Component {
         let percentage = parseInt(this.props.value) / parseInt(this.props.allCases);
         
 
-		if (this.props.value === 0 || percentage != percentage || percentage < 0.01) {
+		if (this.props.value === 0 || percentage != percentage || percentage < 0.01 || !isFinite(percentage)) {
 			return <span className="increase"></span>;
 		} else if (this.props.value > 0) {
 			return (
