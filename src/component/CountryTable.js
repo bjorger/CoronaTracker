@@ -73,10 +73,10 @@ class CountryTable extends React.Component {
 								<th onClick={(e) => this.onSort(e, 'country')} className="tableHeader">
 									State
 								</th>
-								<th onClick={(e) => this.onSort(e, 'cases')} className="tableHeader">
+								<th onClick={(e) => this.onSort(e, 'cases')} className="tableHeader cases">
 									Cases
 								</th>
-								<th onClick={(e) => this.onSort(e, 'deaths')} className="tableHeader">
+								<th onClick={(e) => this.onSort(e, 'deaths')} className="tableHeader deaths">
 									Deaths
 								</th>
 								<th onClick={(e) => this.onSort(e, 'recovered')} className="tableHeader">
@@ -112,14 +112,14 @@ class CountryTable extends React.Component {
 								return (
 									<tr>
 										<td style={{fontSize: '15px'}}>{state.country}</td>
-										<td style={{width: '320px'}}>
+										<td className="cases" style={{width: '320px'}}>
 											{numberWithCommas(state.cases)}{' '}
 											<Increase
 												value={state.todayCases}
 												allCases={yesterdaysStats[0].todayCases}
 											/>
 										</td>
-										<td style={{width: '320px'}}>
+										<td className="deaths" style={{width: '320px'}}>
 											{numberWithCommas(state.deaths)}{' '}
 											<Increase
 												value={state.todayDeaths}
