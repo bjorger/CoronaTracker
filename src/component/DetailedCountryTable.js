@@ -109,7 +109,7 @@ class DetailedCountryTable extends React.Component {
 		}
 
 		return (
-			<div style={{ marginTop: '20px' }}>
+			<div className="detailedCountryTable" style={{ marginTop: '20px' }}>
 				<div className="tableHeadline">
 					<p>{this.props.title}</p>{' '}
 					<p className="mortalityRate">{loaded}</p>

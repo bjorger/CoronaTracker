@@ -60,8 +60,8 @@ class CountryTable extends React.Component {
 
 		const mortalityRate = (allDeaths / allCases) * 100;
 
-		return (
-			<div style={{ width: '1000px', paddingBottom: '20px' }}>
+		return ( 
+			<div className="countryTableContainer" style={{ width: '1000px', paddingBottom: '20px' }}>
 				<div className="tableHeadline">
 					<p>{this.props.continent}</p>{' '}
 					<p className="mortalityRate">Mortalityrate: {mortalityRate.toFixed(2)}%</p>

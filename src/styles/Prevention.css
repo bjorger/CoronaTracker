@@ -5,7 +5,6 @@
     padding-top: 50px;
 }
 
-
 .preventionCard{
     margin: 50px 20px;
     padding: 40px;
@@ -37,4 +36,21 @@ li{
 
 .preventionStep{
     padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+    .preventionCard{
+        width: 90%;
+        margin: 50px 0px;
+        padding: 10px;
+    }
+
+    ul{
+        padding-left: 30px;
+        color: white;
+    }
+    
+    li{
+        padding: 10px 0;
+    }
 }

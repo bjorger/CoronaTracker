@@ -79,30 +79,36 @@ export default class Prevention extends React.Component {
 	render() {
 		return (
 			<div id="Prevention" style={{ backgroundColor: '#262833' }}>
-				<div className="preventionCardGrid">
-					{this.state.preventionSteps.map((prevention) => {
-						let keys = [];
-						for (var key in prevention) {
-							keys.push(key);
-                        }
-                        
-                        let filterdKeys = keys.filter(key => key != "title")
-						return (
-							<div className="preventionCard" style={{ backgroundColor: '#b89d55' }}>
-								<div className="preventionCardHeadline">{prevention.title}</div>
-								<ul>
-									{filterdKeys.map((key) =>
-										key == 'substeps' ? (
-											<li className="preventionStep">{prevention[key]}</li>
-										) : (
-											<li className="subSteps">{prevention[key]}</li>
-										)
-									)}
-								</ul>
-							</div>
-						);
-					})}
+				<div>
+					<h1 style={{color: 'white', textAlign:'center'}}>Prevention Measures</h1>
+					<p style={{textAlign:'center', width: '300px'}}>
+						This page should give some information about how you can protect yourself and the people around you. <br/>
+						Stay safe! <br/>
+						<span style={{fontSize:'10px'}}>All the informations are from <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" target="_blank">CDC.gov</a></span>
+					</p>
 				</div>
+				{this.state.preventionSteps.map((prevention) => {
+					let keys = [];
+					for (var key in prevention) {
+						keys.push(key);
+					}
+
+					let filterdKeys = keys.filter((key) => key != 'title');
+					return (
+						<div className="preventionCard" style={{ backgroundColor: '#b89d55' }}>
+							<div className="preventionCardHeadline">{prevention.title}</div>
+							<ul>
+								{filterdKeys.map((key) =>
+									key == 'substeps' ? (
+										<li className="preventionStep">{prevention[key]}</li>
+									) : (
+										<li className="subSteps">{prevention[key]}</li>
+									)
+								)}
+							</ul>
+						</div>
+					);
+				})}
 			</div>
 		);
 	}

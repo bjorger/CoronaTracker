@@ -101,3 +101,32 @@ tr:first-child{
 .detailedCountryTable th{
     width: 144px;
 }
+
+@media screen and (max-width: 1100px) {
+    .statesTable{
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .myTable{
+        width: 100%;
+    }
+
+    .innerStatesTable{
+        margin: 0px !important;
+    }
+
+    table{
+        overflow-x: auto;
+    }
+
+    .countryTableContainer,
+    .detailedCountryTable{
+        width: 100% !important;
+    }
+
+    .countryTableContainer{
+        padding-top: 50px;
+    }
+}
+
