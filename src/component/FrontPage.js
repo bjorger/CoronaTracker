@@ -376,7 +376,7 @@ class FrontPage extends React.Component {
 			}).then((response) => response.json());
 
 		return (
-			<div className="App" style={{ paddingBottom: '20px' }}>
+			<div className="App" id="App" style={{ paddingBottom: '20px' }}>
 				<div id="overall" style={{ paddingTop: '80px' }}>
 					<div id="overallStats">
 						<p className="cardHeadline">Worldwide Corona Statistics</p>
