@@ -130,10 +130,5 @@ tr:first-child{
     .countryTableContainer{
         padding-top: 50px;
     }
-
-    * td,
-    * th{
-        width: 100px; 
-    }
 }
 
