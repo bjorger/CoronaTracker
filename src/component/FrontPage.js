@@ -352,19 +352,13 @@ class FrontPage extends React.Component {
 		});
 
 		function numberWithCommas(x) {
-			if (typeof x === 'number') {
-				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+			if(typeof x === "number"){
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+			}
+			else{
+				return x;
 			}
 		}
-
-		const usStates = () =>
-			fetch('https://covid19-data.p.rapidapi.com/geojson-us', {
-				method: 'GET',
-				headers: {
-					'x-rapidapi-host': 'covid19-data.p.rapidapi.com',
-					'x-rapidapi-key': '0f74f4db90msh0c879c596d00ecep1875f4jsn58564af8b26a',
-				},
-			}).then((response) => response.json());
 
 		const indiaStates = () =>
 			fetch('https://covid19-data.p.rapidapi.com/geojson-in', {

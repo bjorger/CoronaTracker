@@ -20,3 +20,8 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// Search
+// https://medium.com/@imranhsayed/live-search-with-react-instant-search-pagination-6acd476af756
+// Map
+// https://www.freecodecamp.org/news/how-to-create-a-coronavirus-covid-19-dashboard-map-app-in-react-with-gatsby-and-leaflet/
