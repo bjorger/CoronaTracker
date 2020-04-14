@@ -51,6 +51,7 @@ class Header extends React.Component {
 						<Link to="/">Home</Link>
 						<Link to="/Map">Map</Link>
 						<Link to="/Prevention">Prevention</Link>
+						<Link to="/Sources">Sources</Link>
 						<Link to="/" style={{ display: 'none' }}>
 							Buy me a Ko-Fi <FontAwesomeIcon icon={faMugHot} style={{ paddingLeft: '5px' }} />
 						</Link>

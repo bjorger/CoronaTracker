@@ -62,7 +62,7 @@ class CountryTable extends React.Component {
 		this.state.data.forEach((element) => {
 			allCases += parseFloat(element.cases);
 		});
-
+		console.log(this.state.data)
 		const mortalityRate = (allDeaths / allCases) * 100;
 
 		return ( 
