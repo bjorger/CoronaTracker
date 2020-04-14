@@ -78,7 +78,7 @@ export default class Prevention extends React.Component {
 	}
 	render() {
 		return (
-			<div id="Prevention" style={{ backgroundColor: '#262833' }}>
+			<div id="Prevention" className="page" style={{ backgroundColor: '#262833' }}>
 				<div>
 					<h1 style={{color: 'white', textAlign:'center'}}>Prevention Measures</h1>
 					<p style={{textAlign:'center', width: '300px'}}>

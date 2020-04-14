@@ -6,6 +6,7 @@ import CountryTable from './CountryTable';
 import DetailedCountryTable from './DetailedCountryTable';
 import StateTables from './StateTables'
 import Async from 'react-async'
+import Search from './Search/Search'
 
 /* 
 https://www.npmjs.com/package/covid19-api
@@ -388,6 +389,7 @@ class FrontPage extends React.Component {
 							<p>Critical: {numberWithCommas(parseInt(this.state.all.critical))}</p>
 						</div>
 					</div>
+					<Search data={this.state.countries}/>
 				</div>
 				<CountryTable continent={'World'} data={this.state.countries} yesterday={this.state.yesterday} />
 				<CountryTable continent={'Europe'} data={euStates} yesterday={this.state.yesterday} />

@@ -12,6 +12,7 @@ export default class MobileMenu extends React.Component {
 					<Link to="/">Home</Link>
 					<Link to="/Map">Map</Link>
 					<Link to="/Prevention">Prevention</Link>
+					<Link to="/Sources">Sources</Link>
 				</div>
 			</Menu>
 		);
