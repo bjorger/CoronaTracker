@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRadiation, faMugHot } from '@fortawesome/free-solid-svg-icons';
+import DiscordLogo from '../assets/discord.png'
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import MobileMenu from './MobileHeader';
@@ -47,7 +48,7 @@ class Header extends React.Component {
 						</div>
 					</Link>
 
-					<div>
+					<div style={{position: 'relative'}}>
 						<Link to="/">Home</Link>
 						<Link to="/Map">Map</Link>
 						<Link to="/Prevention">Prevention</Link>
@@ -55,6 +56,9 @@ class Header extends React.Component {
 						<Link to="/" style={{ display: 'none' }}>
 							Buy me a Ko-Fi <FontAwesomeIcon icon={faMugHot} style={{ paddingLeft: '5px' }} />
 						</Link>
+						<a href="https://discord.gg/pCBNtwc" target="_blank" style={{position:'absolute', top: '-2px', right: '-60px'}}>
+							<img src={DiscordLogo} alt="Discord Logo" style={{width: '30px'}}/>
+						</a>
 					</div>
 				</header>
 			);

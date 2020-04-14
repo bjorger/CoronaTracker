@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import DiscordLogo from '../assets/discord.png'
 import '../styles/Footer.css';
 
 class Footer extends React.Component {
@@ -16,6 +17,9 @@ class Footer extends React.Component {
 								icon={faInstagram}
 								style={{ color: 'white', fontSize: '25px', paddingLeft: '10px' }}
 							/>
+						</a>
+						<a href="https://discord.gg/pCBNtwc" target="_blank" style={{paddingLeft:'10px'}}>
+							<img src={DiscordLogo} alt="Discord Logo" style={{width: '30px'}}/>
 						</a>
 					</div>
 					<div className="businessContacts">
